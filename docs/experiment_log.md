@@ -1,16 +1,17 @@
-# Catatan Eksperimen (Experiment Tracking Log)
+# Catatan Pelacakan Eksperimen (Tabel 3.8 Laporan)
 
-Dataset dan rumusan masalah tidak diganti meskipun hasil awal pemisahan cluster lemah, sesuai ketentuan UTS. Data test tidak dipakai pada eksperimen E0 sampai E9; hanya diperiksa secara deskriptif.
+Setiap baris dapat ditelusuri ke bagian notebook yang disebutkan pada kolom terakhir (`../notebooks/ML_final.ipynb`).
 
-| ID | Eksperimen (bagian notebook) | Konfigurasi | Hasil ringkas | Keputusan |
+**Tabel 3.8** Log Eksperimen Milestone 1
+
+| ID | Eksperimen | Konfigurasi utama | Hasil utama | Bagian notebook |
 |---|---|---|---|---|
-| E0 | Split dan fold (4.4) | 80:20 stratified menurut `region_impute`, seed 42; 5-fold di dalam train | 3.450 train dan 863 test; selisih proporsi region terbesar 0,0006 | Split dan fold dibekukan dan dipakai semua tahap |
-| E1 | Preprocessing fit pada train (4.5 dan 4.6) | Imputasi median bertingkat, log1p, winsorizing P1 sampai P99, z-score | Selisih parameter terhadap fit seluruh data kecil (selisih mean maksimum 0,013 std; selisih P99 maksimum 0,132 std pada `paper`) | Tetap fit pada train |
-| E2 | Baseline K-Means k = 3 (5.2 sampai 5.9) | Default scikit-learn, `n_init` 10, seed 42 | Silhouette CV 0,155 ± 0,008; DB 2,101; ARI seed 0,987 | Dibekukan sebagai acuan |
-| E3 | GMM k = 3 (6.4 dan 6.5) | `covariance_type='full'`, `n_init` 10; konvergen | Silhouette CV 0,080 ± 0,007 | Tidak lebih baik dari baseline |
-| E4 | Agglomerative Ward k = 3 (6.4 dan 6.5) | Jarak Euclidean | Silhouette CV 0,092 ± 0,013 | Tidak lebih baik dari baseline |
-| E5 | DBSCAN nilai bawaan (6.2) | eps 0,5; min_samples 5 | 99,5% titik train menjadi noise | Tidak dipakai |
-| E6 | DBSCAN eps dari k-distance (6.4) | eps 2,737; min_samples 22 | Satu cluster dan 1,7% noise; metrik tidak terdefinisi | Tidak dapat dibandingkan angka demi angka |
-| E7 | Sapuan k untuk K-Means, GMM, Ward (7.2 sampai 7.7) | Aturan utama dan syarat ukuran cluster ditetapkan sebelum menjalankan | Aturan utama memilih k = 2 untuk ketiga model | Hanya sensitivitas; keputusan final ditunda ke UAS |
-| E8 | Grid DBSCAN 4 × 4 (7.5) | Persentil eps 20 sampai 80; min_samples 5, 11, 22, 44 | 0 dari 16 konfigurasi memenuhi syarat | DBSCAN dilaporkan tanpa konfigurasi terpilih |
-| E9 | Stabilitas dan variabel penjelas (5.5, 5.7, 7.9) | ARI antar-seed dan subsampel; AMI | Baseline stabil; Ward k = 2 tidak stabil (ARI subsampel 0,382) | Dipertimbangkan saat memilih model final |
+| EXP01 | Struktur awal (PCA dan Hopkins) | PCA 3 komponen; Hopkins 10 seed; z-score vs rank; 3.441 baris lengkap | Varians 3 PC 54,9% (z-score) dan 56,8% (rank); Hopkins 0,900 vs 0,600 | 3.1.10 |
+| EXP02 | Preprocessing dan diagnostik kebocoran | Imputasi median bertingkat, log1p, winsorizing P1–P99, z-score; fit pada train | Fit train vs fit seluruh data: selisih mean maks. 0,013 SD; rasio SD 0,992–1,006; selisih P99 maks. 0,132 SD (paper) | 4.4–4.6 |
+| EXP03 | Baseline K-Means k = 3 | k-means++, n_init = 10, seed 42 | Sil. CV 0,155 ± 0,008; sil. train 0,154; DB CV 2,101; ARI seed 0,987; ARI subsampel 0,934 | 5.2–5.9 |
+| EXP04 | Kandidat 1: GMM k = 3 | covariance_type = full, n_init = 10 | Sil. CV 0,080 ± 0,007; % sil. < 0 = 40,1; DB 2,768 | 6.4–6.6 |
+| EXP05 | Kandidat 2: Ward k = 3 | linkage = ward, Euclidean; 1-NN untuk titik baru | Sil. CV 0,092 ± 0,013; % sil. < 0 = 32,4; DB 2,581 | 6.4–6.6 |
+| EXP06 | Kandidat 3: DBSCAN | min_samples = 22, eps = 2,737 (lutut k-distance) | 1 klaster + 62 noise (1,8%) pada train; metrik tidak terdefinisi | 6.4–6.5 |
+| EXP07 | Sapuan k | K-Means, GMM, Ward; k = 2–8; 5 fold | K-Means sil. 0,202 (k = 2) turun ke 0,111 (k = 8); aturan memilih k = 2 untuk ketiga model | 7.2–7.6 |
+| EXP08 | Grid DBSCAN | min_samples 5/11/22/44 × eps persentil 20/40/60/80 | 0 dari 16 konfigurasi memenuhi syarat | 7.5 |
+| EXP09 | Konfigurasi terpilih vs baseline, ketahanan, stabilitas | k = 2 untuk tiga model; 1-NN seragam; 20 seed dan 20 subsampel | K-Means k = 2: +0,046 (5/5 fold); GMM k = 2: -0,035; Ward k = 2: +0,023 (tidak konsisten, ARI subsampel 0,382) | 7.7–7.10 |

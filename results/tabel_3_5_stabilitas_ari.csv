@@ -1,0 +1,5 @@
+konfigurasi,ari_seed_mean,ari_seed_min,ari_subsampel_80_mean,ari_subsampel_80_min,pct_klaster_terkecil_subsampel
+Baseline: K-Means (k=3),0.987,0.957,0.934,0.861,24.6 - 28.8
+K-Means (k=2),0.988,0.974,0.975,0.925,33.2 - 36.7
+GMM (k=2),1.000,0.999,0.951,0.747,44.7 - 50.0
+Ward (k=2),tidak relevan (deterministik),,0.382,0.055,11.7 - 44.8

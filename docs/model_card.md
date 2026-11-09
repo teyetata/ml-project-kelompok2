@@ -15,6 +15,6 @@
 | Ukuran cluster (train) | 1.460 (42,3%), 997 (28,9%), 993 (28,8%) |
 | Kegunaan yang dimaksud | Eksplorasi dan pemrofilan pola pengelolaan sampah kota/kabupaten di Italia berdasarkan struktur biaya, tingkat pemilahan, dan komposisi sampah |
 | Di luar kegunaan | Menilai atau meranking kinerja suatu kota, menyimpulkan efek skema PAYT, atau dasar keputusan kebijakan otomatis tanpa validasi lanjutan |
-| Keterbatasan | Pemisahan cluster lemah (silhouette di bawah 0,25) dan data tampak berupa kontinum; evaluasi hanya internal; k dipilih a priori; K-Means mengasumsikan cluster berbentuk bola dengan ukuran mirip; `csor` hampir tidak membedakan cluster; 491 nilai `organic` (11,4%) hasil imputasi |
+| Keterbatasan | Pemisahan cluster lemah (silhouette di bawah 0,25) dan data tampak berupa kontinum; evaluasi hanya internal; k dipilih a priori; K-Means mengasumsikan cluster berbentuk bola dengan ukuran mirip; 491 nilai `organic` (11,4%) hasil imputasi |
 | Pertimbangan penggunaan | Cluster tidak boleh dibaca sebagai efek PAYT karena PAYT terkonsentrasi di Utara (cluster 0: 24,6% PAYT dan 89,2% Utara). Lombardia mendominasi (28,3% baris), sehingga profil perlu dibaca per region. Data berupa agregat tingkat kota dari sumber publik |
 | Reproduksibilitas | Python 3.12, scikit-learn, `SEED = 42` |

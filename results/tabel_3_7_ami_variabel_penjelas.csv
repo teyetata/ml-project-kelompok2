@@ -1,0 +1,10 @@
+variabel,kmeans_k3_baseline,gmm_k3,ward_k3,kmeans_k2
+geo,0.185,0.130,0.121,0.047
+region_impute,0.170,0.126,0.137,0.063
+d_fee (PAYT),0.070,0.028,0.016,0.053
+sea,0.065,0.030,0.066,0.064
+urb_rev,0.052,0.059,0.054,0.005
+size_class,0.044,0.092,0.065,0.021
+flag_imputasi (artefak),0.026,0.054,0.022,0.031
+gap_flag (artefak),0.010,-0.000,0.024,-0.000
+isle,0.005,0.003,0.005,0.008

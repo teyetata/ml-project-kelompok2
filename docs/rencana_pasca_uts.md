@@ -1,20 +1,13 @@
 # Rencana Pekerjaan Pasca-UTS Menuju Final Project (UAS)
 
-Disusun dari temuan dan keterbatasan pada Milestone 1 (lihat `../results/hasil_eksperimen_awal.md`). Jadwal dan penanggung jawab: **[ISI]**.
+Rencana berikut disusun langsung dari temuan dan keterbatasan pada Subbab 3.1 laporan dan dikerjakan pada Minggu 9–14.
 
-| Tahap | Pekerjaan | Dasar (temuan awal) | Keluaran |
-|---|---|---|---|
-| 1. Menetapkan k dan model final | Membandingkan k = 2, 3, dan 4 dengan mempertimbangkan kestabilan, tafsiran cluster, dan skor, tidak hanya silhouette | Aturan utama memilih k = 2 tetapi diuntungkan metrik; k = 3 punya dasar a priori | Keputusan model final beserta alasan |
-| 2. Tuning terbatas | GMM dengan `covariance_type` lain (diag, tied, spherical); DBSCAN dengan grid lebih luas; fold dan metrik yang sama | GMM hanya diuji dengan `full`; grid DBSCAN 4 × 4 tanpa konfigurasi layak | Tabel perbandingan versi final |
-| 3. Uji fitur | Menjalankan ulang clustering tanpa `csor` dan menilai kontribusi tiap fitur | `csor` hampir tidak membedakan cluster (selisih centroid sekitar 0,3 z-score) | Tabel dengan dan tanpa fitur |
-| 4. Uji sensitivitas imputasi | Membandingkan cluster dengan dan tanpa baris yang `organic`-nya diimputasi (penanda `flag_imputasi` sudah disiapkan di notebook) | 491 nilai `organic` (11,4%) berasal dari imputasi | Perbandingan ARI dan profil cluster |
-| 5. Validasi substantif | Membandingkan PAYT dan STANDARD dengan kontrol wilayah, serta pemeriksaan terhadap `geo`, `region_impute`, dan `size_class` | PAYT terkonsentrasi di Utara; AMI semua variabel penjelas rendah | Profil dan interpretasi cluster |
-| 6. Evaluasi akhir | Evaluasi satu kali pada data test untuk model terpilih dan baseline | Data test belum dipakai | Tabel hasil akhir |
-| 7. Dokumentasi dan laporan akhir | README dan versi library, notebook yang dapat dijalankan dari awal, laporan final, bahan presentasi | Rubrik menilai keterlacakan laporan dan notebook | Repositori dan laporan final |
+1. **Menetapkan jumlah klaster dan menyetel kandidat.** Membandingkan k = 2, 3, dan 4 dengan kriteria yang sama: silhouette, Davies-Bouldin, BIC/siku, stabilitas ARI, AMI dengan geo, dan keterbacaan profil. Menyetel GMM (covariance_type full, tied, diag, spherical dan reg_covar) serta Ward (linkage average dan complete) dengan aturan pemilihan yang ditetapkan sebelum eksekusi. Keluaran: tabel perbandingan dan satu konfigurasi terpilih beserta alasannya.
 
-## Risiko dan mitigasi
+2. **Menelaah kota di perbatasan klaster dan pendekatan berbasis kepadatan.** Karena 10,5% kota pada baseline berada lebih dekat ke klaster lain dan DBSCAN pada grid awal tidak memberi segmentasi, akan dianalisis profil kota dengan silhouette negatif dan probabilitas keanggotaan GMM, serta dicoba HDBSCAN. Keluaran: profil kota perbatasan dan keputusan apakah pendekatan kepadatan dipertahankan.
 
-- **Data berupa kontinum, cluster mungkin bukan kelompok alami.** Dilaporkan sebagai segmentasi yang dapat ditafsirkan dan diperiksa lewat validasi substantif (tahap 5).
-- **Hasil bergantung pada k dan metrik.** k dipilih dengan beberapa kriteria dan kestabilan, bukan satu skor.
-- **Pelaporan antar wilayah berbeda dan Lombardia mendominasi (28,3% baris).** `gap_flag` dipertahankan dan cluster diprofilkan per region.
-- **Selisih antar-model kecil dibanding derau lima fold.** Selisih di bawah sekitar 0,02 tidak dianggap perbaikan nyata.
+3. **Sensitivitas fitur dan imputasi.** Menjalankan ablasi satu fitur (leave-one-feature-out), menguji apakah enam fitur komposisi mendominasi jarak dibanding tiga fitur biaya, membandingkan model dengan dan tanpa msw_pc, serta melatih ulang model tanpa baris yang organiknya diimputasi, lalu menghitung ARI terhadap model utama. Keluaran: tabel sensitivitas dan kesimpulan tentang kekokohan klaster.
+
+4. **Analisis PAYT yang mengontrol wilayah.** Karena PAYT terkonsentrasi di Utara, perbandingan PAYT dan STANDARD akan dilakukan di dalam sub-populasi geo = 3 dan pada kelas ukuran kota yang sama, untuk tc, cres, csor_share, dan sor. Keluaran: perbandingan terkontrol dengan jumlah observasi per kelompok.
+
+5. **Evaluasi akhir dan dokumentasi final.** Menjalankan model terpilih dan baseline satu kali pada data uji (N = 863) untuk memeriksa konsistensi skor dan profil, menyusun analisis kesalahan, serta menyiapkan model card dan rekomendasi beserta batasannya.

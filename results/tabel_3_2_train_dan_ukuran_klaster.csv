@@ -1,0 +1,5 @@
+model,silhouette,pct_silhouette_negatif,davies_bouldin,rasio_bw,ukuran_klaster_baris_latih
+Baseline: K-Means (k=3),0.154,10.8,2.116,0.368,1.460 / 997 / 993
+Kandidat 1: GMM,0.082,40.0,2.783,0.218,1.224 / 1.201 / 1.025
+Kandidat 2: Ward,0.087,26.3,2.450,0.249,1.523 / 1.080 / 847
+Kandidat 3: DBSCAN,-,-,-,-,3.388 (satu klaster) + 62 noise

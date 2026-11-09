@@ -1,0 +1,5 @@
+konfigurasi,silhouette_mean,silhouette_sd,pct_sil_negatif_mean,pct_sil_negatif_sd,davies_bouldin_mean,davies_bouldin_sd,delta_silhouette_vs_baseline_per_fold,silhouette_1nn_mean,silhouette_1nn_sd,delta_vs_baseline_1nn
+Baseline: K-Means (k=3),0.155,0.008,10.5,1.3,2.101,0.063,-,0.142,0.008,-
+K-Means (k=2),0.202,0.007,4.1,1.4,1.891,0.044,+0.046 (positif 5 dari 5 fold),0.193,0.008,+0.050
+GMM (k=2),0.121,0.008,28.3,0.6,2.656,0.053,-0.035 (negatif 5 dari 5 fold),0.128,0.004,-0.014
+Ward (k=2),0.178,0.031,13.0,3.4,1.848,0.348,+0.023 ± 0.030 (positif 4 dari 5 fold),0.178,0.031,+0.036
