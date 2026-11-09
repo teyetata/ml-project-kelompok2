@@ -52,9 +52,6 @@ Pada k = 3 baseline unggul, tetapi silhouette 0,155 masih di bawah 0,25 (struktu
 ├── requirements.txt                   # daftar library
 ├── notebooks/
 │   └── ML_final.ipynb                 # notebook eksperimen lengkap (EDA, preprocessing, baseline, kandidat, sapuan)
-├── laporan/
-│   ├── UTS_ML_IF-B_Pagi_Kelompok_2.pdf          # laporan Milestone 1 (PDF)
-│   └── UTS_ML_IF-B_Pagi_Kelompok_2_final.docx   # berkas sumber laporan
 ├── data/
 │   └── README.md                      # cara memperoleh dataset
 ├── docs/
