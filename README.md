@@ -1,4 +1,4 @@
-# Segmentasi Kota dan Kabupaten di Italia Berdasarkan Profil Sampah dan Struktur Biaya Pengelolaan: Perbandingan K-Means, GMM, Agglomerative Ward, dan DBSCAN
+# Klasterisasi Kotamadya di Italia Berdasarkan Profil Pengelolaan Limbah dan Struktur Biaya Menggunakan Pendekatan Unsupervised Learning
 
 Repository: https://github.com/teyetata/ml-project-kelompok2
 
@@ -8,7 +8,7 @@ Repository ini berisi seluruh artefak **UTS Machine Learning (Pembelajaran Mesin
 
 | Keterangan | Isi |
 |---|---|
-| Project ID | **[ISI PROJECT ID KELOMPOK]** |
+| Project ID | **[B06]** |
 | Nama kelompok | Kelompok 2 |
 | Mata kuliah | Pembelajaran Mesin (Machine Learning) |
 | Tahap | UTS, Milestone 1 |
