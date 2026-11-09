@@ -110,7 +110,3 @@ Di Foggia, Giacomo (2022), *Municipal waste management cost and fee schemes*, Bi
 ## Rencana Lanjutan
 
 Rencana pekerjaan setelah UTS menuju final project (UAS) ada pada [`docs/rencana_pasca_uts.md`](docs/rencana_pasca_uts.md).
-
-## Integritas Akademik
-
-Seluruh angka evaluasi pada repository ini berasal dari eksekusi notebook. Penggunaan AI sebagai alat bantu: **[ISI PERNYATAAN KELOMPOK]**.
