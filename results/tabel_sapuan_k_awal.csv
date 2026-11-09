@@ -1,0 +1,5 @@
+model,k,validasi,silhouette_mean,silhouette_sd,pct_silhouette_negatif_mean,pct_silhouette_negatif_sd,davies_bouldin_mean,davies_bouldin_sd,rasio_bw_mean,rasio_bw_sd
+Baseline: K-Means,3,5-fold CV (train),0.155,0.008,10.5,1.3,2.101,0.063,0.371,0.018
+K-Means,2,5-fold CV (train),0.202,0.007,4.1,1.4,1.891,0.044,0.237,0.015
+GMM,2,5-fold CV (train),0.121,0.008,28.3,0.6,2.656,0.053,0.126,0.004
+Agglomerative (Ward),2,5-fold CV (train),0.178,0.031,13.0,3.4,1.848,0.348,0.151,0.018

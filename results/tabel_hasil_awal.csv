@@ -1,0 +1,5 @@
+model,k,validasi,silhouette_mean,silhouette_sd,pct_silhouette_negatif_mean,pct_silhouette_negatif_sd,davies_bouldin_mean,davies_bouldin_sd,rasio_bw_mean,rasio_bw_sd,jumlah_cluster,pct_noise
+Baseline: K-Means,3,5-fold CV (train),0.155,0.008,10.5,1.3,2.101,0.063,0.371,0.018,3,0.0
+GMM (full),3,5-fold CV (train),0.080,0.007,40.1,2.5,2.768,0.102,0.222,0.013,3,0.0
+Agglomerative (Ward),3,5-fold CV (train),0.092,0.013,32.4,10.1,2.581,0.199,0.247,0.018,3,0.0
+DBSCAN (eps 2.737; min_samples 22),tidak ada,5-fold CV (train),tidak terdefinisi,,tidak terdefinisi,,tidak terdefinisi,,tidak terdefinisi,,1,1.7
