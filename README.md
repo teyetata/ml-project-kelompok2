@@ -8,7 +8,7 @@ Repository ini berisi seluruh artefak **UTS Machine Learning (Pembelajaran Mesin
 
 | Keterangan | Isi |
 |---|---|
-| Project ID | **[B06** |
+| Project ID | **[B06]** |
 | Nama kelompok | Kelompok 2 |
 | Kelas | IF-B Pagi |
 | Mata kuliah | Pembelajaran Mesin |
